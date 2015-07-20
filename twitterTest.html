@@ -1,0 +1,68 @@
+<body>
+
+<h1>test Facebook</h1>
+
+
+<a class="twitter-share-button"
+   href="https://twitter.com/share"
+   data-size="large"
+   data-url="https://dev.twitter.com/web/tweet-button"
+   data-count-url="https://dev.twitter.com/web/tweet-button"
+   data-via="twitterdev"
+   data-related="twitterapi,twitter"
+   data-hashtags="example,demo"
+   data-text="custom share text">
+    Tweet
+</a>
+
+<div id="aa"></div>
+
+
+
+<?php wp_footer();?>
+
+<script>
+window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function(f) {
+        t._e.push(f);
+    };
+
+    return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+<script>
+    jQuery(document).ready(function($) {
+
+        twttr.ready(
+            function (twttr) {
+
+                twttr.widgets.createShareButton(
+                    "https:\/\/dev.twitter.com\/web\/tweet-button",
+                    document.getElementById("aa"),
+                    {
+                        size: "large",
+                        via: "twitterdev",
+                        related: "twitterapi,twitter",
+                        text: "custom share text",
+                        hashtags: "example,demo"
+                    }
+                );
+
+            }
+        );
+
+
+
+    });
+</script>
+</body>
